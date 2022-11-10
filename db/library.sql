@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS authors;
+
+CREATE TABLE authors (
+  id SERIAL PRIMARY KEY,
+  f_name VARCHAR(255),
+  l_name VARCHAR(255)
+);
+
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  author INT NOT NULL REFERENCES authors(id)
+);
